@@ -1,5 +1,22 @@
 import React from "react";
-
+import {
+  SiJavascript,
+  SiTypescript,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiZod,
+  SiJest,
+  SiGithubactions,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiReact,
+  SiPostman,
+  SiVercel,
+  SiTestinglibrary,
+  SiSwagger,
+} from "react-icons/si";
+import type { IconType } from "react-icons";
 interface ExperienceItem {
   date: string;
   role: string;
@@ -10,6 +27,24 @@ interface ExperienceItem {
   stack: string[];
   link?: string;
 }
+
+const iconMap: Record<string, IconType> = {
+  JavaScript: SiJavascript,
+  TypeScript: SiTypescript,
+  "Node.js": SiNodedotjs,
+  "React.js": SiReact,
+  "Express.js": SiExpress,
+  MongoDB: SiMongodb,
+  Zod: SiZod,
+  Jest: SiJest,
+  "GitHub Actions": SiGithubactions,
+  "Next.js": SiNextdotjs,
+  "Tailwind CSS": SiTailwindcss,
+  "REST API": SiPostman,
+  Vercel: SiVercel,
+  "Testing Library": SiTestinglibrary,
+  Swagger: SiSwagger,
+};
 
 const EXPERIENCES: ExperienceItem[] = [
   {
@@ -134,7 +169,7 @@ const Experience: React.FC = () => {
                     key={j}
                     className="text-[14px] md:text-[15px] text-text-secondary leading-relaxed flex gap-4 group/item"
                   >
-                    <span className="text-accent font-mono text-xs opacity-40 group-hover/item:opacity-100 transition-opacity">
+                    <span className="text-accent font-mono text-xs opacity-60 group-hover/item:opacity-100 transition-opacity">
                       0{j + 1}
                     </span>
                     <span className="border-l border-border-subtle/30 pl-4">
@@ -147,14 +182,26 @@ const Experience: React.FC = () => {
               {/* Tech Stack & Link */}
               <div className="flex flex-wrap items-center gap-6 mt-4 pt-6 border-t border-border-subtle/30">
                 <div className="flex flex-wrap gap-2">
-                  {exp.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="font-mono text-[9px] text-text-primary/70 bg-app-card border border-border-subtle px-2.5 py-1 rounded-sm uppercase tracking-tighter hover:border-accent/40 transition-colors"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {exp.stack.map((tech) => {
+                    const Icon = iconMap[tech];
+                    return (
+                      <div
+                        key={tech}
+                        className="flex items-center gap-2 px-2.5 py-1 border border-border-subtle rounded-sm bg-white/5 group/tech"
+                      >
+                        {Icon ? (
+                          <Icon className="w-3.5 h-3.5 text-accent group-hover/tech:scale-110 transition-transform" />
+                        ) : (
+                          <span className="w-3.5 h-3.5 flex items-center justify-center text-[7px] border border-accent/30 text-accent rounded-[1px]">
+                            {tech[0]}
+                          </span>
+                        )}
+                        <span className="font-mono text-[9px] uppercase tracking-tighter">
+                          {tech}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
                 {exp.link && (
                   <a

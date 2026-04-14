@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
             Building • Open to Opportunities
           </div>
           <a
-            href="https://drive.google.com/file/your-id/view"
+            href={import.meta.env.VITE_RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[10px] text-text-primary hover:text-accent transition-all border-b border-border-subtle hover:border-accent pb-0.5"

@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
 
             {/* Secondary CTA: View Full Resume */}
             <a
-              href="https://drive.google.com/file/your-id/view"
+              href={import.meta.env.VITE_RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="px-10 py-4 border-2 border-text-primary text-text-primary font-bold rounded-sm hover:bg-text-primary hover:text-app-bg transition-all duration-300 active:scale-95 text-center"

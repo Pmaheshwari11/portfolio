@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap");
 @import "tailwindcss";
 
 @theme {
   /* High-contrast, technical palette for Backend/DevOps focus */
-  --color-app-bg: #0a0a0c;          /* Deep obsidian */
-  --color-app-card: #111114;        /* Slightly lighter slate for depth */
-  --color-text-primary: #f4f4f5;     /* Near white for readability */
-  --color-text-secondary: #a1a1aa;   /* Muted slate for metadata/labels */
-  --color-accent: #3b82f6;           /* System-Blue/Link color */
-  --color-accent-glow: #1d4ed8;      /* For subtle shadows/glows */
-  --color-border-subtle: #27272a;    /* Structural lines */
+  --color-app-bg: #0a0a0c; /* Deep obsidian */
+  --color-app-card: #111114; /* Slightly lighter slate for depth */
+  --color-text-primary: #f4f4f5; /* Near white for readability */
+  --color-text-secondary: #a1a1aa; /* Muted slate for metadata/labels */
+  --color-accent: #3b82f6; /* System-Blue/Link color */
+  --color-accent-glow: #1d4ed8; /* For subtle shadows/glows */
+  --color-border-subtle: #27272a; /* Structural lines */
 
   /* Modern, geometric font stacks */
-  --font-serif: "Space Grotesk", sans-serif; /* Replaces serif with technical geometric sans */
+  --font-serif:
+    "Space Grotesk", sans-serif; /* Replaces serif with technical geometric sans */
   --font-sans: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
@@ -20,14 +21,20 @@
 @layer base {
   body {
     @apply bg-app-bg text-text-primary antialiased selection:bg-accent/30 selection:text-white;
-    background-image: radial-gradient(circle at 2px 2px, #1a1a1e 1px, transparent 0);
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      #1a1a1e 1px,
+      transparent 0
+    );
     background-size: 40px 40px; /* Subtle architectural grid background */
   }
-  
-  h1, h2, h3 {
+
+  h1,
+  h2,
+  h3 {
     @apply font-serif font-bold tracking-tight text-text-primary uppercase;
   }
-  
+
   p {
     @apply font-sans leading-relaxed text-text-secondary font-light;
   }
